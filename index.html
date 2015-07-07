@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="tiled-layout.css" rel="stylesheet" />
+    <style type="text/css">
+        html, body {
+            /*height: 100%;*/
+            background-color: rgba(240, 240, 240, 1.0);
+        }
+
+        #map-canvas1, #map-canvas2 {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box-content-style {
+            background-color: rgba(255, 0, 0, .25);
+            border: 1px dashed green;
+        }
+
+        .box-green {
+            background-color: darkseagreen;
+        }
+
+        .box-blue {
+            background-color: skyblue;
+        }
+
+        .box-red {
+            background-color: pink;
+        }
+
+        .box-yellow {
+            background-color: khaki;
+        }
+
+        .box-lightgray {
+            background-color: gainsboro;
+        }
+
+        .box-gray {
+            background-color: silver;
+        }
+
+        .box-darkgray {
+            background-color: darkgray;
+        }
+
+        .box-header {
+            text-align: center;
+            background-color: rgba(255, 255, 255, .1);
+            font-size: 18px;
+            padding-top: 3px;
+        }
+
+        .box-footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, .1);
+            padding-top: 3px;
+        }
+
+        .measure{
+            position: absolute;
+            font-size: 30px;
+        }
+
+        #ctrcv1{
+            position: absolute;
+            width:50%;
+            height:80%;
+            margin-left:50%;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <!--<div style="background-color: gold; height:30px"></div>-->
+                <div class="container-fluid" style="margin-top:30px">
+                    <!--
+                        single row group
+                    -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-2">
+                            <div class="box box-r1-c1 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <div class="box-header-style">R1-C1</div>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r1-c2 box-blue">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C2</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-r1-c3 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C3</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-8">
+                            <div class="box box-r1-c4 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C4</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <div class="box box-r1-c1 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C1</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-10">
+                            <div class="box box-r1-c5 box-blue">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C5</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r1-c1 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C1</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-12">
+                            <div class="box box-r1-c6 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C6</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-4">
+                            <div class="box box-r2-c1 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C1</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r2-c1">
+                                <div class="box-content">
+                                    <div class="container-fluid">
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-lightgray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-gray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r1-c2 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R1-C2</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!--
+                        2-rows group
+                    -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-2">
+                            <div class="box box-r2-c1 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r2-c2 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C2</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-r2-c3 box-blue">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C3</p>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="map-canvas1"></div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="box box-r2-c4 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C4</p>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="map-canvas2"></div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r2-c1 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-10">
+                            <div class="box box-r2-c5 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C5</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r2-c1 box-blue">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-12">
+                            <div class="box box-r2-c6 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R2-C6</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!--
+                        3-rows group
+                    -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-2">
+                            <div class="box box-r3-c1 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="box box-r3-c4 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C4</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r3-c1">
+                                <div class="box-content">
+                                    <div class="container-fluid">
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-lightgray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-gray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-darkgray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-2">
+                            <div class="box box-r3-c1 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r3-c2">
+                                <div class="box-content">
+                                    <div class="container-fluid">
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c2 box-lightgray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row box-row">
+                                            <div class="box box-r2-c2 box-gray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="box box-r3-c2 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C2</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r3-c1">
+                                <div class="box-content">
+                                    <div class="container-fluid">
+                                        <div class="row box-row">
+                                            <div class="box box-r2-c1 box-lightgray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row box-row">
+                                            <div class="box box-r1-c1 box-gray">
+                                                <div class="box-content">
+                                                    <div class="box-body" data-long></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-10">
+                            <div class="box box-r3-c5 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C5</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="box box-r3-c1 box-red">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C1</p>
+                                    </div>
+                                    <div class="box-body" data-short></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-12">
+                            <div class="box box-r3-c6 box-green">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>R3-C6</p>
+                                    </div>
+                                    <div class="box-body" data-long></div>
+                                    <div class="box-footer">
+                                        <p>Footer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <!--
+                        misc
+                    -->
+                    <!-- begin row -->
+                    <div class="row box-row">
+                        <div class="col-sm-3">
+                            <div class="box box-r2-c4 box-yellow">
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <p>Temperature</p>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="measure">31.4 °C</div>
+                                        <div id="ctrcv1">
+                                            <canvas id="cv1"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="box-footer">
+                                        <span class="glyphicon glyphicon-warning-sign"></span>&nbsp;
+                                        <span class="glyphicon glyphicon-question-sign"></span>&nbsp;
+                                        <span class="glyphicon glyphicon-hand-up"></span>&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
