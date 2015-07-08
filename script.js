@@ -2,8 +2,84 @@ var slong = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu
 
 var sshort = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.";
 
+var gauge = undefined;
+
+    
+function redraw() {
+    var ctrcv1 = $("#ctrmeter1");
+    var w = ctrcv1.width();
+    var h = ctrcv1.height();
+
+    var cv1 = $("#meter1");
+    cv1[0].width = w;
+    cv1[0].height = h;
+
+    //var ctx = cv1[0].getContext("2d");
+
+    //ctx.fillStyle = "lime";
+    //ctx.fillRect(0, 0, w, h);
+
+    if (gauge) {
+        gauge.updateConfig({
+            width  : w,
+            height : h
+        });
+    }
+    else {
+        gauge = new Gauge({
+            renderTo    : 'meter1',
+            width       : w,
+            height      : h,
+            glow      : true,
+            units     : 'V',
+            title     : 'Input voltage',
+            strokeTicks : false,
+            minValue: 0,
+            maxValue: 20,
+            highlights : [{
+                from  : 0,
+                to    : 8,
+                color : 'LightSalmon'
+            }, {
+                from  : 8,
+                to    : 10,
+                color : 'Khaki'
+            }, {
+                from  : 10,
+                to    : 15,
+                color : 'PaleGreen'
+            }, {
+                from  : 15,
+                to    : 17,
+                color : 'Khaki'
+            }, {
+                from  : 17,
+                to    : 20,
+                color : 'LightSalmon'
+            }],
+            animation : {
+                delay : 10,
+                duration: 300,
+                fn : 'bounce'
+            }
+        });
+        gauge.setValue(12.6);
+
+        /*
+            gauge.onready = function() {
+                setInterval( function() {
+                    gauge.setValue( Math.random() * 110-30);
+                }, 3000);
+            };
+        */
+        }
+
+    gauge.draw();
+}
+
 
 function refresh() {
+    /*
     var ctrcv1 = $("#ctrcv1");
     var w = ctrcv1.width();
     var h = ctrcv1.height();
@@ -16,20 +92,30 @@ function refresh() {
 
     ctx.fillStyle = "lime";
     ctx.fillRect(0, 0, w, h);
-
+    //console.log("w=" + w + "; h=" + h);
+    */
+    
+    redraw();
 }
 
 
 $(function () {
-    $("div[data-long]").html(slong);
-    $("div[data-short]").html(sshort);
+    $("div[data-long]").each(function(index) {
+        $(this).html(slong);
+        $(this).addClass("tile-body-scrollable");
+    });
+    
+    $("div[data-short]").each(function(index) {
+        $(this).html(slong);
+        $(this).addClass("tile-body-scrollable");
+    });
 
-    $("div.box-body").each(function (index) {
-        if ($(this).siblings(".box-header").length) {
-            $(this).addClass("box-body-headered");
+    $("div.tile-body").each(function (index) {
+        if ($(this).siblings(".tile-header").length) {
+            $(this).addClass("tile-body-headered");
         }
-        if ($(this).siblings(".box-footer").length) {
-            $(this).addClass("box-body-footered");
+        if ($(this).siblings(".tile-footer").length) {
+            $(this).addClass("tile-body-footered");
         }
     });
 
